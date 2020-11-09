@@ -1,9 +1,9 @@
 node{
-stage('SCM checkout'{
-  git "https://github.com/gayatrirentala/sample/new/main/my-app-master"
+stage('SCM checkout'){
+  git 'https://github.com/gayatrirentala/sample/new/main/my-app-master'
 }
 
 stage('packaging'){
- sh "mvn clean package"
+ sh 'mvn clean package'
 }
 }
