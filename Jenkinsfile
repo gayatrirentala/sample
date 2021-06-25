@@ -1,6 +1,6 @@
 node{
 stage('SCM checkout'){
-  git credentialsId: 'git', url: 'https://github.com/gayatrirentala/sample.git'
+  git branch: 'main', credentialsId: 'git', url: 'https://github.com/gayatrirentala/sample.git'
 }
 
 stage('packaging'){
