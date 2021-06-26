@@ -1,3 +1,4 @@
+currentBuild.display = "pcmod - #"+currentBuild.number
 pipeline {
    agent any
   environment{
@@ -18,14 +19,15 @@ pipeline {
 	 }
 	   
 	 stage('Deployment Dev'){
+		 steps {
 		 sshagent(['guidewire-pc]){
 	            sh """
 		    scp -o StrictHostkeyChecking=no target/pc.war devuser@pcmod.apr.mdi:/opt/tomcat8/wepapps/
 		    ssh devuser@pcmod.apr.mdi /opt/tomcat8/bin/shutdown.sh
 		    ssh devuser@pcmod.apr.mdi /opt/tomcat8/bin/startup.sh
 		    """
-			   
-			   }
+			   }   
+			 }
 	       
 	   }
 	 }  
